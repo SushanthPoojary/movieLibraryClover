@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import axios from 'axios';
 import Homepage from './pages/Homepage';
-import MovieLists from './components/MovieLists';
 import { movieData } from './lib/dummyData';
+import Favorites from './pages/Favourites';
+import { Route, Routes } from 'react-router';
 
 function App() {
 
   // const API_KEY = "a7a95f5d";
 
-  const [movieDatas, setMovieDatas] = useState(null);
-
-  const [search, setSearch] = useState("Avengers");
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     // async function loadMovies() {
@@ -23,13 +22,22 @@ function App() {
     //   console.log(response.data);
     // }
     // loadMovies();
-  }, []);
+
+    console.log("favorites", favorites);
+  }, [favorites]);
 
   return (
-    <div>
-      <Homepage onSearch={setSearch} />
-      <MovieLists movies={movieData.Search} />
-    </div>
+    // <div>
+    //   <Homepage onFavoriteClick={setFavorites} favorites={favorites} />
+    //   <Favorites favorites={favorites} />
+    // </div>
+
+    <Routes>
+      <Route path="/" element={<Homepage onFavoriteClick={setFavorites} favorites={favorites} />} />
+      <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+      <Route path="*" element={<div>Page Not Found</div>} />
+    </Routes>
+
   );
 }
 
