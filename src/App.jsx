@@ -10,21 +10,21 @@ function App() {
 
   // const API_KEY = "a7a95f5d";
 
-  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-    // async function loadMovies() {
-    //   const response = await axios(`/api/?i=tt3896198&apikey=a7a95f5d&s=${search}`, {
-    //     headers: {
-    //       Accept: 'application/json',
-    //     },
-    //   });
-    //   console.log(response.data);
-    // }
-    // loadMovies();
+  // useEffect(() => {
+  // async function loadMovies() {
+  //   const response = await axios(`/api/?i=tt3896198&apikey=a7a95f5d&s=${search}`, {
+  //     headers: {
+  //       Accept: 'application/json',
+  //     },
+  //   });
+  //   console.log(response.data);
+  // }
+  // loadMovies();
 
-    console.log("favorites", favorites);
-  }, [favorites]);
+  // console.log("favorites", favorites);
+  // }, [favorites]);
 
   return (
     // <div>
@@ -33,8 +33,8 @@ function App() {
     // </div>
 
     <Routes>
-      <Route path="/" element={<Homepage onFavoriteClick={setFavorites} favorites={favorites} />} />
-      <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/favorites" element={<Favorites />} />
       <Route path="*" element={<div>Page Not Found</div>} />
     </Routes>
 
