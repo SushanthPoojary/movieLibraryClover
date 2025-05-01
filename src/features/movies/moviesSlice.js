@@ -8,7 +8,7 @@ const apiKey = import.meta.env.VITE_OMDB_API_KEY;
 export const fetchMovies = createAsyncThunk(
     "movies/fetchMovies",
     async ({ search, page }) => {
-        const response = await axios(`/api/?i=tt3896198&apikey=${apiKey}&s=${search}&page=${page}`, {
+        const response = await axios(`https://www.omdbapi.com?i=tt3896198&apikey=${apiKey}&s=${search}&page=${page}`, {
             headers: {
                 Accept: 'application/json',
             },
